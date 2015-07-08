@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>暴打咸猪手</title>
+    <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <style>
+        body, canvas, div {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -khtml-user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?867294e95568cd9d8214433bd50af29d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body style="padding:0; margin: 0; background: #000;">
+<canvas id="gameCanvas" width="800" height="450"></canvas>
+
+<script src="game.min.js"></script>
+<script src="WeixinApi.js"></script>
+<script>
+    // 微信分享的数据
+    window.wxData = {
+        "appId": "", // 服务号可以填写appId
+        "imgUrl": 'http://www.k835.com/games/dsl/icon.png',
+        "link": 'http://www.k835.com/games/dsl/',
+        "desc": "女神出门，遭遇地铁咸猪手？快来英雄救美，暴打咸猪手男，打的他爹妈都不认识！～～～",
+        "title": "暴打咸猪手～～～"
+    };
+
+    WeixinApi.ready(function (Api) {
+
+        // 分享的回调
+        var wxCallbacks = {
+            ready: function () {
+
+            },
+
+            cancel: function (resp) {
+
+            },
+            fail: function (resp) {
+
+            },
+            confirm: function (resp) {
+
+            },
+            all: function (resp) {
+
+            }
+        };
+
+        Api.shareToFriend(wxData, wxCallbacks);
+
+        Api.shareToTimeline(wxData, wxCallbacks);
+
+        Api.shareToWeibo(wxData, wxCallbacks);
+    });
+</script>
+
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F867294e95568cd9d8214433bd50af29d' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
